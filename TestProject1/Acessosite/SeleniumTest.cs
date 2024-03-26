@@ -235,10 +235,11 @@ namespace TestProject1.Acessosite
             IWebElement helloWorldMessage = driver.FindElement(By.CssSelector("div[id='finish'] h4"));
             System.Threading.Thread.Sleep(1000);
 
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             var element = driver.FindElement(By.XPath("//h4[normalize-space()='Hello World!']"));
             if (!string.IsNullOrEmpty(element.Text) && element.Text.Contains("Hello World!"))
 
-                System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(500);
             driver.Quit();
         }
         [Test]
@@ -253,6 +254,10 @@ namespace TestProject1.Acessosite
             IWebElement dropDownList = driver.FindElement(By.CssSelector("div[id='start'] button"));
             dropDownList.Click();
             System.Threading.Thread.Sleep(5000);
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //IWebElement helloWorldMessage = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[id='finish'] h4")));
+            //Assert.That(helloWorldMessage.Text, Is.EqualTo("Hello World!"), "A mensagem 'Hello World' não foi exibida corretamente.");
 
             IWebElement helloWorldMessage = driver.FindElement(By.CssSelector("div[id='finish'] h4"));
             System.Threading.Thread.Sleep(1000);
@@ -328,7 +333,9 @@ namespace TestProject1.Acessosite
 
             Assert.That(resultadoObtido, Is.EqualTo(resultadoEsperado), "O resultado obtido não é igual ao resultado esperado.");
         }
-    }
+
+    }   
+        
 }
     
 

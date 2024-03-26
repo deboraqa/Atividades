@@ -22,5 +22,10 @@ namespace TestProject1
         {
             throw new NotImplementedException();
         }
+
+        internal static Func<IWebDriver, IWebElement> ElementIsVisible(By by)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
