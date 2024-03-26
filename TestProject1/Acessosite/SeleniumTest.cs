@@ -173,8 +173,7 @@ namespace TestProject1.Acessosite
             driver.Manage().Window.Maximize();
 
             driver.Navigate().GoToUrl("https://www.amazon.com.br");
-
-            // Aguardar um tempo para visualização (opcional)
+            
             //System.Threading.Thread.Sleep(100);
 
             IWebElement produto = driver.FindElement(By.XPath("//input[@id='twotabsearchtextbox']"));
@@ -184,7 +183,7 @@ namespace TestProject1.Acessosite
             IWebElement botaoSendEmail = driver.FindElement(By.XPath("//img[@alt='Anúncio patrocinado – Apple iPhone 15 (512 GB) — Azul']"));
             botaoSendEmail.Click();
 
-            // Aguardar um tempo para visualização (opcional)
+            
             System.Threading.Thread.Sleep(100);
 
             IWebElement campoCor = driver.FindElement(By.XPath("//img[@alt='Preto']"));
