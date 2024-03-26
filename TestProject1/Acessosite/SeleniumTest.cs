@@ -232,12 +232,12 @@ namespace TestProject1.Acessosite
             dropDownList.Click();
             System.Threading.Thread.Sleep(5000);
 
-            IWebElement helloWorldMessage = driver.FindElement(By.CssSelector("div[id='finish'] h4"));
-            System.Threading.Thread.Sleep(1000);
-
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            var element = driver.FindElement(By.XPath("//h4[normalize-space()='Hello World!']"));
-            if (!string.IsNullOrEmpty(element.Text) && element.Text.Contains("Hello World!"))
+            IWebElement helloWorldMessage = driver.FindElement(By.CssSelector("div[id='finish'] h4"));
+            Assert.That(helloWorldMessage.Text, Is.EqualTo("Hello World!"), "A mensagem 'Hello World!' não foi exibida.");
+
+            //var element = driver.FindElement(By.XPath("//h4[normalize-space()='Hello World!']"));
+            //if (!string.IsNullOrEmpty(element.Text) && element.Text.Contains("Hello World!"))
 
             System.Threading.Thread.Sleep(500);
             driver.Quit();
@@ -256,14 +256,11 @@ namespace TestProject1.Acessosite
             System.Threading.Thread.Sleep(5000);
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //IWebElement helloWorldMessage = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[id='finish'] h4")));
-            //Assert.That(helloWorldMessage.Text, Is.EqualTo("Hello World!"), "A mensagem 'Hello World' não foi exibida corretamente.");
-
             IWebElement helloWorldMessage = driver.FindElement(By.CssSelector("div[id='finish'] h4"));
-            System.Threading.Thread.Sleep(1000);
+            Assert.That(helloWorldMessage.Text, Is.EqualTo("Hello World!"), "A mensagem 'Hello World!' não foi exibida.");
 
-            var element = driver.FindElement(By.XPath("//h4[normalize-space()='Hello World!']"));
-            if (!string.IsNullOrEmpty(element.Text) && element.Text.Contains("Hello World!"))
+            //var element = driver.FindElement(By.XPath("//h4[normalize-space()='Hello World!']"));
+            //if (!string.IsNullOrEmpty(element.Text) && element.Text.Contains("Hello World!"))
 
             System.Threading.Thread.Sleep(500);
             driver.Quit();
